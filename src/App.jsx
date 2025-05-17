@@ -1,17 +1,19 @@
-import "./App.css";
-import GenreMovieList from "./components/GenreMovieList";
-import Header from "./components/Header";
-import ProductionHouse from "./components/ProductionHouse";
-import Slider from "./components/Slider";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login.jsx';
+import Signup from './components/Signup.jsx';
+import Header from './components/Header'; // Optional
+import MovieList from './components/MovieList'; // Your homepage or dashboard
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Slider />
-      <ProductionHouse />
-      <GenreMovieList />
-    </div>
+    <Router>
+      {/* Optional: Add <Header /> here if it should show on all pages */}
+      <Routes>
+        <Route path="/" element={<MovieList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
   );
 }
 
